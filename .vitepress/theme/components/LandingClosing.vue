@@ -53,7 +53,7 @@ const steps = [
         <div class="cta bd-glow">
           <div class="cta__inner">
             <p class="bd-eyebrow">下载</p>
-            <h2 class="cta__title">下载 bili-danmu v1.2.0</h2>
+            <h2 class="cta__title">下载 bili-danmu v1.3.0</h2>
             <p class="cta__lead">
               Windows 10 / 11（x64）·
               <span class="bd-grad">2.9 MB</span>

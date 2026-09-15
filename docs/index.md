@@ -22,6 +22,8 @@ hero:
 
 <LandingStats />
 
+<LandingUpdate />
+
 <LandingShowcase />
 
 <LandingHighlights />

@@ -5,11 +5,13 @@ import LandingClosing from './components/LandingClosing.vue'
 import LandingHighlights from './components/LandingHighlights.vue'
 import LandingShowcase from './components/LandingShowcase.vue'
 import LandingStats from './components/LandingStats.vue'
+import LandingUpdate from './components/LandingUpdate.vue'
 import './style.css'
 
 // 落地页各区块在 docs/index.md 里按顺序引用，这里注册成全局组件
 const sections = {
   LandingStats,
+  LandingUpdate,
   LandingShowcase,
   LandingHighlights,
   LandingClosing,

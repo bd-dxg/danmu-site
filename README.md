@@ -34,6 +34,7 @@
     components/
       ScrollReveal.vue         滚动进视口淡入
       LandingStats.vue         数据条
+      LandingUpdate.vue        本次更新（v1.3.0）
       LandingShowcase.vue      实机效果大图 + 界面截图组
       LandingHighlights.vue    核心亮点卡片 + 功能表
       LandingClosing.vue       隐私说明 + 下载 CTA
@@ -57,7 +58,7 @@ tsconfig.json                  类型检查配置
 
 这些值没有收敛到常量，改的时候别漏：
 
-- **版本号**（`v1.2.0`）：`LandingClosing.vue` 的 `cta__title`
+- **版本号**（`v1.3.0`）：`LandingClosing.vue` 的 `cta__title`、`LandingUpdate.vue` 的 `update__badge`
 - **体积与占用**（`2.9 MB` / `12 MB`）：`docs/index.md` 的 tagline、`LandingClosing.vue`、`LandingHighlights.vue`、`LandingStats.vue`、`config.ts` 的 `description` 与 `og:description`
 - **仓库地址**：`config.ts` 与 `LandingClosing.vue` 的 `REPO_URL`、`docs/index.md` 的 action 链接
 - **官网域名**：`config.ts` 的 `SITE_URL`、`deploy.yml` 的 `TARGET`

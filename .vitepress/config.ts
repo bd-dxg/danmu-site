@@ -39,6 +39,7 @@ export default defineConfig({
     siteTitle: 'bili-danmu',
 
     nav: [
+      { text: '更新', link: '/#update' },
       { text: '核心亮点', link: '/#highlights' },
       { text: '效果', link: '/#showcase' },
       { text: '功能', link: '/#features' },
