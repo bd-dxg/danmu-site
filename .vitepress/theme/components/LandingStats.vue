@@ -1,13 +1,8 @@
 <script setup lang="ts">
 import ScrollReveal from './ScrollReveal.vue'
 
-// 数字口碑：几个一眼能记住的量
-const stats = [
-  { value: '2.9', unit: 'MB', label: '安装包体积' },
-  { value: '12', unit: 'MB', label: '装完占用硬盘' },
-  { value: '14', unit: '种', label: '中文朗读音色' },
-  { value: '0', unit: '条', label: '信息收集与日志上传' },
-]
+// 数字口碑：几个一眼能记住的量。文案在 theme/data/<产品>.ts 里，这里只渲染
+defineProps<{ items: { value: string; unit: string; label: string }[] }>()
 </script>
 
 <template>
@@ -15,7 +10,7 @@ const stats = [
     <div class="bd-container">
       <ScrollReveal>
         <ul class="stats__list">
-          <li v-for="item in stats" :key="item.label" class="stats__item">
+          <li v-for="item in items" :key="item.label" class="stats__item">
             <p class="stats__value">
               <span class="bd-grad">{{ item.value }}</span>
               <small>{{ item.unit }}</small>

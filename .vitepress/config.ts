@@ -2,14 +2,13 @@ import { defineConfig } from 'vitepress'
 
 // 官网地址。不要带结尾斜杠：下面用它拼 og:image 时会拼出 `//`
 const SITE_URL = 'https://danmu.bddxg.top'
-const REPO_URL = 'https://github.com/bd-dxg/bili-danmu'
-const RELEASE_URL = `${REPO_URL}/releases/latest`
 
 export default defineConfig({
   srcDir: 'docs',
   lang: 'zh-CN',
-  title: 'bili-danmu',
-  description: '2.9 MB 的轻量化 B 站直播弹幕助手：透明悬浮窗不挡游戏，鼠标穿透，弹幕朗读，断线自愈。',
+  title: '弹幕助手',
+  description:
+    'bd-dxg 的两款轻量弹幕助手：bili-danmu 盯 B 站直播，douyin-danmu 盯抖音直播。都是 Windows 桌面端，安装包几 MB，透明悬浮窗不挡游戏，鼠标穿透，弹幕朗读。',
   cleanUrls: true,
   sitemap: { hostname: SITE_URL },
 
@@ -19,35 +18,37 @@ export default defineConfig({
   appearance: false,
 
   head: [
-    ['link', { rel: 'icon', type: 'image/webp', href: '/imgs/app-icon.webp' }],
+    ['link', { rel: 'icon', type: 'image/webp', href: '/imgs/bili-danmu/app-icon.webp' }],
     ['meta', { name: 'theme-color', content: '#ffffff' }],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:title', content: 'bili-danmu — 不跟游戏抢资源的弹幕助手' }],
+    ['meta', { property: 'og:title', content: '弹幕助手 — 不跟游戏抢资源的直播弹幕窗' }],
     [
       'meta',
       {
         property: 'og:description',
-        content: '2.9 MB 安装包，装完占 12 MB 硬盘。透明悬浮窗叠在游戏上，鼠标穿透，弹幕朗读。',
+        content: 'bili-danmu 与 douyin-danmu：安装包只有几 MB，透明悬浮窗叠在游戏上，鼠标穿透，弹幕朗读。',
       },
     ],
-    ['meta', { property: 'og:image', content: `${SITE_URL}/imgs/app-icon.webp` }],
-    ['meta', { name: 'keywords', content: 'B站弹幕助手,哔哩哔哩直播弹幕,弹幕朗读,OBS弹幕,轻量弹幕助手,bili-danmu' }],
+    ['meta', { property: 'og:image', content: `${SITE_URL}/imgs/bili-danmu/app-icon.webp` }],
+    [
+      'meta',
+      {
+        name: 'keywords',
+        content:
+          '弹幕助手,B站弹幕助手,哔哩哔哩直播弹幕,抖音弹幕助手,抖音直播弹幕,弹幕朗读,OBS弹幕,bili-danmu,douyin-danmu',
+      },
+    ],
   ],
 
   themeConfig: {
-    logo: '/imgs/app-icon.webp',
-    siteTitle: 'bili-danmu',
+    siteTitle: '弹幕助手',
 
     nav: [
-      { text: '更新', link: '/#update' },
-      { text: '核心亮点', link: '/#highlights' },
-      { text: '效果', link: '/#showcase' },
-      { text: '功能', link: '/#features' },
-      { text: '隐私', link: '/#privacy' },
-      { text: '下载', link: RELEASE_URL },
+      { text: 'bili-danmu', link: '/bili-danmu' },
+      { text: 'douyin-danmu', link: '/douyin-danmu' },
     ],
 
-    socialLinks: [{ icon: 'github', link: REPO_URL }],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/bd-dxg' }],
 
     outline: false,
     returnToTopLabel: '回到顶部',
@@ -55,7 +56,7 @@ export default defineConfig({
 
     footer: {
       message:
-        '以 GNU GPL v3 开源 · 弹幕协议实现参考 <a href="https://github.com/SoraYjy/DanmuFree" target="_blank" rel="noreferrer">DanmuFree</a>',
+        'bili-danmu 与 douyin-danmu 均以 <a href="https://github.com/bd-dxg/douyin-danmu/blob/main/LICENSE" target="_blank" rel="noreferrer">GNU GPL v3</a> 开源',
       copyright: 'Copyright © 2025 bd-dxg',
     },
   },

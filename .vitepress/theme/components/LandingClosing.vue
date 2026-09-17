@@ -1,29 +1,23 @@
 <script setup lang="ts">
 import ScrollReveal from './ScrollReveal.vue'
 
-const REPO_URL = 'https://github.com/bd-dxg/bili-danmu'
-const RELEASE_URL = `${REPO_URL}/releases/latest`
-
-const privacy = [
-  {
-    title: '配置存本机',
-    body: '配置只写在本机用户目录下；登录信息加密保存，且与本机、本机用户绑定，配置文件拷到别的电脑也读不出来，要重新扫码。',
-  },
-  {
-    title: '不收集、不上传',
-    body: '不收集任何信息，不上传日志。没有埋点、没有统计 SDK。',
-  },
-  {
-    title: '唯一的对外请求',
-    body: '开启朗读后，弹幕文字会发往微软 Edge TTS 服务合成语音；关掉朗读开关就停。',
-  },
-]
-
-const steps = [
-  '下载安装包，双击装好',
-  '扫码登录（B 站 2025+ 不向游客推弹幕，未登录收不到）',
-  '填直播间号点「连接」，弹幕窗就出来了',
-]
+// 数据与隐私 + 下载 CTA。文案在 theme/data/<产品>.ts 里，这里只渲染
+defineProps<{
+  privacy: { eyebrow: string; title: string; items: { title: string; body: string }[] }
+  download: {
+    eyebrow: string
+    title: string
+    platform: string
+    size: string
+    note: string
+    steps: string[]
+    repoUrl: string
+    releaseUrl: string
+    license: { name: string; url: string }
+    creditsLabel: string
+    credits: { name: string; url: string }[]
+  }
+}>()
 </script>
 
 <template>
@@ -31,13 +25,13 @@ const steps = [
     <div class="bd-container">
       <ScrollReveal>
         <header class="bd-head">
-          <p class="bd-eyebrow">数据与隐私</p>
-          <h2 class="bd-title">它不会往外传你的东西</h2>
+          <p class="bd-eyebrow">{{ privacy.eyebrow }}</p>
+          <h2 class="bd-title">{{ privacy.title }}</h2>
         </header>
       </ScrollReveal>
 
       <div class="bd-grid bd-grid--3">
-        <ScrollReveal v-for="(item, i) in privacy" :key="item.title" :delay="i * 70">
+        <ScrollReveal v-for="(item, i) in privacy.items" :key="item.title" :delay="i * 70">
           <article class="bd-card">
             <h3 class="bd-card__title">{{ item.title }}</h3>
             <p class="bd-card__body">{{ item.body }}</p>
@@ -52,31 +46,34 @@ const steps = [
       <ScrollReveal>
         <div class="cta bd-glow">
           <div class="cta__inner">
-            <p class="bd-eyebrow">下载</p>
-            <h2 class="cta__title">下载 bili-danmu v1.3.0</h2>
+            <p class="bd-eyebrow">{{ download.eyebrow }}</p>
+            <h2 class="cta__title">{{ download.title }}</h2>
             <p class="cta__lead">
-              Windows 10 / 11（x64）·
-              <span class="bd-grad">2.9 MB</span>
-              · 双击安装，不需要额外运行环境
+              {{ download.platform }}·
+              <span class="bd-grad">{{ download.size }}</span>
+              · {{ download.note }}
             </p>
 
             <ol class="cta__steps">
-              <li v-for="(step, i) in steps" :key="step">
+              <li v-for="(step, i) in download.steps" :key="step">
                 <span class="cta__num">{{ i + 1 }}</span>
                 <span>{{ step }}</span>
               </li>
             </ol>
 
             <div class="cta__actions">
-              <a class="btn btn--brand" :href="RELEASE_URL" target="_blank" rel="noreferrer">下载安装包</a>
-              <a class="btn btn--ghost" :href="REPO_URL" target="_blank" rel="noreferrer">查看源码</a>
+              <a class="btn btn--brand" :href="download.releaseUrl" target="_blank" rel="noreferrer">下载安装包</a>
+              <a class="btn btn--ghost" :href="download.repoUrl" target="_blank" rel="noreferrer">查看源码</a>
             </div>
 
             <p class="cta__meta">
               以
-              <a :href="`${REPO_URL}/blob/main/LICENSE`" target="_blank" rel="noreferrer">GNU GPL v3</a>
-              开源 · 弹幕协议实现参考
-              <a href="https://github.com/SoraYjy/DanmuFree" target="_blank" rel="noreferrer">DanmuFree</a>
+              <a :href="download.license.url" target="_blank" rel="noreferrer">{{ download.license.name }}</a>
+              开源 · {{ download.creditsLabel }}
+              <template v-for="(item, i) in download.credits" :key="item.url">
+                <span v-if="i">、</span>
+                <a :href="item.url" target="_blank" rel="noreferrer">{{ item.name }}</a>
+              </template>
             </p>
           </div>
         </div>

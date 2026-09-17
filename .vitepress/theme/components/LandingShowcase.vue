@@ -4,42 +4,42 @@ import ScrollReveal from './ScrollReveal.vue'
 // 尺寸写进 width/height，避免图片加载完才撑开导致页面跳动
 const shots = [
   {
-    src: '/imgs/扫码登录.webp',
+    src: '/imgs/bili-danmu/扫码登录.webp',
     width: 918,
     height: 711,
     title: '扫码登录',
     desc: '登录信息只存本机，按本机与本机用户加密',
   },
   {
-    src: '/imgs/弹幕设置.webp',
+    src: '/imgs/bili-danmu/弹幕设置.webp',
     width: 918,
     height: 711,
     title: '弹幕样式',
     desc: '字号、行距、字体、背景不透明度随你调',
   },
   {
-    src: '/imgs/朗读设置.webp',
+    src: '/imgs/bili-danmu/朗读设置.webp',
     width: 924,
     height: 711,
     title: '朗读设置',
     desc: '选音色、调语速音量，先试听再挂后台',
   },
   {
-    src: '/imgs/主播分区.webp',
+    src: '/imgs/bili-danmu/主播分区.webp',
     width: 924,
     height: 711,
     title: '礼物与朗读',
     desc: '金额门槛、连击合并、礼物念不念，开关都在这里',
   },
   {
-    src: '/imgs/内存占用.webp',
+    src: '/imgs/bili-danmu/内存占用.webp',
     width: 713,
     height: 417,
     title: '挂着直播时的占用',
     desc: '任务管理器里的真实数字，长时间挂着不越涨越多',
   },
   {
-    src: '/imgs/关于软件.webp',
+    src: '/imgs/bili-danmu/关于软件.webp',
     width: 924,
     height: 711,
     title: '关于',
@@ -66,7 +66,7 @@ const shots = [
           <div class="bd-glow">
             <div class="bd-frame">
               <img
-                src="/imgs/弹幕效果.webp"
+                src="/imgs/bili-danmu/弹幕效果.webp"
                 :width="1410"
                 :height="1096"
                 alt="弹幕窗透明叠在游戏画面上，左侧是金色区分的礼物行与弹幕列表，下方是发送框" />
