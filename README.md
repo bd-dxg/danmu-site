@@ -1,4 +1,4 @@
-# bili-danmu-site
+# danmu-site
 
 [bili-danmu](https://github.com/bd-dxg/bili-danmu) 的官网落地页，基于 VitePress 构建。
 
