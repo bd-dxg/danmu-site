@@ -50,8 +50,8 @@ bd-dxg 弹幕助手的官网，基于 VitePress 构建，一个站点放两款�
       ScrollReveal.vue         滚动进视口淡入
       LandingProducts.vue      首页产品卡（数据写在组件里，只有两张卡）
       LandingStats.vue         数字条（文案走 props）
-      LandingUpdate.vue        本次更新（bili 专属，v1.3.0）
-      LandingShowcase.vue      实机效果大图 + 界面截图组（bili 专属）
+      LandingUpdate.vue        本次更新（文案走 props，两款产品共用）
+      LandingShowcase.vue      实机效果大图 + 界面截图组（文案与截图清单走 props）
       LandingHighlights.vue    核心亮点卡片 + 功能表（文案走 props）
       LandingClosing.vue       隐私说明 + 下载 CTA（文案走 props）
 docs/
@@ -68,9 +68,7 @@ tsconfig.json                  类型检查配置
 
 ## 文案与数据怎么走的
 
-区块组件本身不存文案：`LandingStats` / `LandingHighlights` / `LandingClosing` 都用 props 拿数据，页面在 `docs/*.md` 里用 `<script setup>` 从 `theme/data/<产品>.ts` import 后传进去。
-
-`LandingUpdate`（本次更新）和 `LandingShowcase`（截图）只有 bili-danmu 页在用，文案仍写在组件 `<script setup>` 顶部。
+区块组件本身不存文案：`LandingStats` / `LandingUpdate` / `LandingShowcase` / `LandingHighlights` / `LandingClosing` 都用 props 拿数据，页面在 `docs/*.md` 里用 `<script setup>` 从 `theme/data/<产品>.ts` import 后传进去。
 
 ## 改内容改哪里
 
@@ -85,8 +83,8 @@ tsconfig.json                  类型检查配置
 
 这些值没有收敛到常量，改的时候别漏：
 
-- **bili 版本号**（`v1.3.0`）：`data/bili-danmu.ts` 的 `download.title`、`LandingUpdate.vue` 的 `update__badge`
-- **douyin 版本号**（`v0.1.1`）：`data/douyin-danmu.ts` 的 `download.title`
+- **bili 版本号**（`v1.3.0`）：`data/bili-danmu.ts` 的 `download.title` 与 `update.badge`
+- **douyin 版本号**（`v0.1.2`）：`data/douyin-danmu.ts` 的 `download.title` 与 `update.badge`
 - **体积数字**（bili `2.9 MB` / `12 MB`，douyin `3 MB`）：`data/*.ts`、`LandingProducts.vue` 的 `tags`、`config.ts` 的 `description` 与 `og:description`
 - **仓库地址**：`data/*.ts` 的 `REPO_URL`、`LandingProducts.vue` 的 `releaseUrl`、`docs/bili-danmu.md` 与 `docs/douyin-danmu.md` 的 action 链接
 - **蓝奏网盘链接**（`https://wwbor.lanzouu.com/b03fmf2u0j`，密码 `6u67`）：两个产品共用同一个分享链接，出现在 `docs/bili-danmu.md` 与 `docs/douyin-danmu.md` 的 hero action 里，改一处就得改两处

@@ -22,10 +22,22 @@ hero:
 
 <script setup lang="ts">
 // 本页所有文案都在 theme/data/douyin-danmu.ts 里，改文案改那里
-import { download, features, highlights, privacy, stats } from '../.vitepress/theme/data/douyin-danmu'
+import {
+  download,
+  features,
+  highlights,
+  privacy,
+  showcase,
+  stats,
+  update,
+} from '../.vitepress/theme/data/douyin-danmu'
 </script>
 
 <LandingStats :items="stats" />
+
+<LandingUpdate :update="update" />
+
+<LandingShowcase :showcase="showcase" />
 
 <LandingHighlights :highlights="highlights" :features="features" />
 

@@ -22,14 +22,14 @@ hero:
 
 <script setup lang="ts">
 // 本页所有文案都在 theme/data/bili-danmu.ts 里，改文案改那里
-import { download, features, highlights, privacy, stats } from '../.vitepress/theme/data/bili-danmu'
+import { download, features, highlights, privacy, showcase, stats, update } from '../.vitepress/theme/data/bili-danmu'
 </script>
 
 <LandingStats :items="stats" />
 
-<LandingUpdate />
+<LandingUpdate :update="update" />
 
-<LandingShowcase />
+<LandingShowcase :showcase="showcase" />
 
 <LandingHighlights :highlights="highlights" :features="features" />
 

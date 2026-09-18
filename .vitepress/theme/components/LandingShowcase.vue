@@ -2,50 +2,33 @@
 import ScrollReveal from './ScrollReveal.vue'
 
 // 尺寸写进 width/height，避免图片加载完才撑开导致页面跳动
-const shots = [
-  {
-    src: '/imgs/bili-danmu/扫码登录.webp',
-    width: 918,
-    height: 711,
-    title: '扫码登录',
-    desc: '登录信息只存本机，按本机与本机用户加密',
-  },
-  {
-    src: '/imgs/bili-danmu/弹幕设置.webp',
-    width: 918,
-    height: 711,
-    title: '弹幕样式',
-    desc: '字号、行距、字体、背景不透明度随你调',
-  },
-  {
-    src: '/imgs/bili-danmu/朗读设置.webp',
-    width: 924,
-    height: 711,
-    title: '朗读设置',
-    desc: '选音色、调语速音量，先试听再挂后台',
-  },
-  {
-    src: '/imgs/bili-danmu/主播分区.webp',
-    width: 924,
-    height: 711,
-    title: '礼物与朗读',
-    desc: '金额门槛、连击合并、礼物念不念，开关都在这里',
-  },
-  {
-    src: '/imgs/bili-danmu/内存占用.webp',
-    width: 713,
-    height: 417,
-    title: '挂着直播时的占用',
-    desc: '任务管理器里的真实数字，长时间挂着不越涨越多',
-  },
-  {
-    src: '/imgs/bili-danmu/关于软件.webp',
-    width: 924,
-    height: 711,
-    title: '关于',
-    desc: '版本号、项目地址、开源致谢',
-  },
-]
+interface Shot {
+  src: string
+  width: number
+  height: number
+  title: string
+  desc: string
+}
+
+const props = defineProps<{
+  showcase: {
+    hero: {
+      eyebrow: string
+      title: string
+      lead: string
+      image: { src: string; width: number; height: number; alt: string }
+      caption: string
+    }
+    settings: {
+      eyebrow: string
+      title: string
+      lead: string
+      shots: Shot[]
+    }
+  }
+}>()
+
+const { hero, settings } = props.showcase
 </script>
 
 <template>
@@ -53,11 +36,9 @@ const shots = [
     <div class="bd-container">
       <ScrollReveal>
         <header class="bd-head">
-          <p class="bd-eyebrow">实机效果</p>
-          <h2 class="bd-title">弹幕直接叠在游戏画面上</h2>
-          <p class="bd-lead">
-            弹幕窗是一层透明悬浮窗，下面就是游戏。礼物行用金色区分，同一个人送同一件礼物合并成一行只显示总数；下方是发送框，回车即发。
-          </p>
+          <p class="bd-eyebrow">{{ hero.eyebrow }}</p>
+          <h2 class="bd-title">{{ hero.title }}</h2>
+          <p class="bd-lead">{{ hero.lead }}</p>
         </header>
       </ScrollReveal>
 
@@ -65,16 +46,10 @@ const shots = [
         <figure class="shot">
           <div class="bd-glow">
             <div class="bd-frame">
-              <img
-                src="/imgs/bili-danmu/弹幕效果.webp"
-                :width="1410"
-                :height="1096"
-                alt="弹幕窗透明叠在游戏画面上，左侧是金色区分的礼物行与弹幕列表，下方是发送框" />
+              <img :src="hero.image.src" :width="hero.image.width" :height="hero.image.height" :alt="hero.image.alt" />
             </div>
           </div>
-          <figcaption class="bd-caption">
-            弹幕窗透明，直接叠在游戏画面上 · 礼物行金色区分，连击只占一行 · 下方发送框回车发送
-          </figcaption>
+          <figcaption class="bd-caption">{{ hero.caption }}</figcaption>
         </figure>
       </ScrollReveal>
     </div>
@@ -84,14 +59,14 @@ const shots = [
     <div class="bd-container">
       <ScrollReveal>
         <header class="bd-head">
-          <p class="bd-eyebrow">界面</p>
-          <h2 class="bd-title">设置项都摆在明面上</h2>
-          <p class="bd-lead">没有藏在二级菜单里的开关，每一项改完即生效，配置存在本机。</p>
+          <p class="bd-eyebrow">{{ settings.eyebrow }}</p>
+          <h2 class="bd-title">{{ settings.title }}</h2>
+          <p class="bd-lead">{{ settings.lead }}</p>
         </header>
       </ScrollReveal>
 
       <div class="bd-grid bd-grid--2">
-        <ScrollReveal v-for="(item, i) in shots" :key="item.src" :delay="i * 60">
+        <ScrollReveal v-for="(item, i) in settings.shots" :key="item.src" :delay="i * 60">
           <figure class="shot">
             <div class="bd-frame bd-frame--fixed">
               <img
