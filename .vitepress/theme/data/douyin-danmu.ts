@@ -1,5 +1,5 @@
 // douyin-danmu 落地页文案。区块组件只负责渲染，文案集中在这里。
-import { iconBox, iconChip, iconMinusCircle, iconRefresh } from './icons'
+import { iconBox, iconChip, iconMinusCircle, iconNoClick, iconPointer, iconRefresh } from './icons'
 
 const REPO_URL = 'https://github.com/bd-dxg/douyin-danmu'
 
@@ -102,37 +102,27 @@ export const showcase = {
   },
 }
 
-// 本次更新（v0.1.2）四条全在扫码登录这一块
+// 本次更新（v0.1.3）两条都在弹幕窗上：下沿的穿透快捷开关 + 屏蔽右键菜单
 export const update = {
-  badge: 'v0.1.2',
+  badge: 'v0.1.3',
   title: '这次更新了什么',
-  lead: '一句话：把扫码登录这块的内存算干净了。以下都跟登录有关，平时怎么用还是怎么用。',
+  lead: '一句话：开了穿透也能就地关掉，不用再切回主界面。两条改的都是弹幕窗，设置项一个没动。',
   changes: [
     {
-      icon: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M12 4v16"/>',
-      title: '登录搬进独立进程',
-      body: '登录页会同时开好几个视频流，以前它跟主程序挤在一起，能把 WebView2 的 GPU 进程顶到 1 GB 上下。现在登录跑在自己一个进程里，登录完成就退出，主程序全程不加载登录页。',
+      icon: iconPointer,
+      title: '弹幕窗下沿多了个穿透小窗',
+      body: '开着穿透时弹幕窗收不到鼠标，以前只能回主界面把穿透关掉；现在点弹幕窗下沿的小按钮就能开关。按钮颜色实时反映穿透状态，主界面里改了穿透，小窗 2 秒内自己跟上。',
     },
     {
-      icon: '<rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/>',
-      title: '登录后不再留下一截内存',
-      body: '以前登录完成后还残着约 84 MB 缓存，未登录 185 MB、登录后 279 MB，差了一大截。现在这部分全额归还，登录期间主程序的内存基本不动。',
-    },
-    {
-      icon: '<path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="m16.5 9.5 5 5M21.5 9.5l-5 5"/>',
-      title: '打开登录窗口不再有声音',
-      body: '登录页以前会自动播放视频，点开登录框先出一阵声。现在它不放了。',
-    },
-    {
-      icon: '<path d="M4 7h16"/><path d="M9 7V4.5h6V7"/><path d="M6 7l1 13h10l1-13"/>',
-      title: '退出登录后重登不再「秒过」',
-      body: '重新登录时会连登录进程留下的 WebView2 目录一起清，不会拿旧缓存冒充登录成功。',
+      icon: iconNoClick,
+      title: '右键不再弹菜单',
+      body: '弹幕窗和穿透小窗上点右键不再弹出 WebView2 自带的菜单，手滑点到也不会打断弹幕。',
     },
   ],
   also: [
     {
-      title: '会短暂多出一个进程',
-      body: '登录时任务管理器里会短暂出现第二个 douyin-danmu.exe，那就是登录进程，登录完自己消失，不是重复启动。',
+      title: '小窗跟着弹幕窗一起动',
+      body: '小窗吸附在弹幕窗正下方，和面板背景左边缘对齐，拖动弹幕窗它一起走，不用单独摆。',
     },
   ],
 }
@@ -177,7 +167,7 @@ export const privacy = {
 
 export const download = {
   eyebrow: '下载',
-  title: '下载 douyin-danmu v0.1.2',
+  title: '下载 douyin-danmu v0.1.3',
   platform: 'Windows 10 / 11（x64）',
   size: '3 MB',
   note: '双击安装，不需要额外运行环境',

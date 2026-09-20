@@ -83,8 +83,8 @@ tsconfig.json                  类型检查配置
 
 这些值没有收敛到常量，改的时候别漏：
 
-- **bili 版本号**（`v1.3.0`）：`data/bili-danmu.ts` 的 `download.title` 与 `update.badge`
-- **douyin 版本号**（`v0.1.2`）：`data/douyin-danmu.ts` 的 `download.title` 与 `update.badge`
+- **bili 版本号**（`v1.4.0`）：`data/bili-danmu.ts` 的 `download.title` 与 `update.badge`
+- **douyin 版本号**（`v0.1.3`）：`data/douyin-danmu.ts` 的 `download.title` 与 `update.badge`、`LandingProducts.vue` 的 `tags`
 - **体积数字**（bili `2.9 MB` / `12 MB`，douyin `3 MB`）：`data/*.ts`、`LandingProducts.vue` 的 `tags`、`config.ts` 的 `description` 与 `og:description`
 - **仓库地址**：`data/*.ts` 的 `REPO_URL`、`LandingProducts.vue` 的 `releaseUrl`、`docs/bili-danmu.md` 与 `docs/douyin-danmu.md` 的 action 链接
 - **蓝奏网盘链接**（`https://wwbor.lanzouu.com/b03fmf2u0j`，密码 `6u67`）：两个产品共用同一个分享链接，出现在 `docs/bili-danmu.md` 与 `docs/douyin-danmu.md` 的 hero action 里，改一处就得改两处

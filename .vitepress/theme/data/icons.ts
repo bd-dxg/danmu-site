@@ -5,3 +5,7 @@ export const iconChip =
   '<rect x="7.5" y="7.5" width="9" height="9" rx="2"/><path d="M10 3.5V7M14 3.5V7M10 17v3.5M14 17v3.5M3.5 10H7M3.5 14H7M17 10h3.5M17 14h3.5"/>'
 export const iconMinusCircle = '<circle cx="12" cy="12" r="8.5"/><path d="M8.5 12h7"/>'
 export const iconRefresh = '<path d="M20.5 12a8.5 8.5 0 1 1-2.5-6"/><path d="M20.5 3.5V9H15"/>'
+export const iconPointer = '<path d="m5 3.5 5.6 15.6 2.4-6.4 6.4-2.4L5 3.5Z"/>'
+export const iconNarrow = '<path d="M10 5.5 7 12l3 6.5M14 5.5 17 12l-3 6.5M4 12h4M16 12h4"/>'
+export const iconNoClick =
+  '<rect x="7" y="3" width="10" height="14" rx="5"/><path d="M12 3v5"/><path d="m4.5 20.5 15-15"/>'
