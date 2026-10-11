@@ -2,6 +2,7 @@
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import LandingClosing from './components/LandingClosing.vue'
+import LandingCompare from './components/LandingCompare.vue'
 import LandingHighlights from './components/LandingHighlights.vue'
 import LandingProducts from './components/LandingProducts.vue'
 import LandingShowcase from './components/LandingShowcase.vue'
@@ -17,6 +18,7 @@ const sections = {
   LandingUpdate,
   LandingShowcase,
   LandingHighlights,
+  LandingCompare,
   LandingClosing,
 }
 
