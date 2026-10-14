@@ -1,10 +1,17 @@
 // bili-danmu 落地页文案。区块组件只负责渲染，文案集中在这里。
-import { iconBox, iconChip, iconMinusCircle, iconNarrow, iconNoClick, iconPointer, iconRefresh } from './icons'
+import {
+  iconBox,
+  iconChip,
+  iconClock,
+  iconMinusCircle,
+  iconRefresh,
+  iconVolumeOff,
+} from './icons'
 
 const REPO_URL = 'https://github.com/bd-dxg/bili-danmu'
 
 export const stats = [
-  { value: '2.9', unit: 'MB', label: '安装包体积' },
+  { value: '3.0', unit: 'MB', label: '安装包体积' },
   { value: '12', unit: 'MB', label: '装完占用硬盘' },
   { value: '14', unit: '种', label: '中文朗读音色' },
   { value: '0', unit: '条', label: '信息收集与日志上传' },
@@ -18,7 +25,7 @@ export const highlights = {
     {
       icon: iconBox,
       title: '小到离谱',
-      body: '安装包 2.9 MB，装完占硬盘 12 MB。不用额外装浏览器组件（Windows 自带）、不用装 Python、不用下载语音模型，双击下一步就能用。',
+      body: '安装包 3.0 MB，装完占硬盘 12 MB。不用额外装浏览器组件（Windows 自带）、不用装 Python、不用下载语音模型，双击下一步就能用。',
     },
     {
       icon: iconChip,
@@ -102,32 +109,31 @@ export const showcase = {
   },
 }
 
-// 本次更新（v1.4.0）只动弹幕窗和发送框，文案一律避免「窗口句柄 / 消息钩子」这类说法
+// 本次更新（v1.4.1）只修朗读：微软改了鉴权规则、本机时间不准，两种都会让朗读整段失败
 export const update = {
-  badge: 'v1.4.0',
+  badge: 'v1.4.1',
   title: '这次更新了什么',
-  lead: '一句话：打游戏时手不用离开弹幕窗。这次只改弹幕窗和发送框这两块，设置项一个没动。',
+  lead: '一句话：朗读没声音的两种原因都修好了。这次只动朗读这一块，弹幕窗、发送框、筛选一个没改。',
   changes: [
     {
-      icon: iconPointer,
-      title: '发送框上多了个「穿透」按钮',
-      body: '打游戏时想让鼠标穿过弹幕窗，以前得切回设置页点一下；现在点发送框右端的按钮就能开关，开着的时候按钮会高亮，一眼看得出当前状态。',
+      icon: iconVolumeOff,
+      title: '微软改了鉴权规则，朗读全哑',
+      body: '微软 10 月起调整了在线朗读服务的鉴权方式，一部分人的朗读会整段失败。这一版跟上了新规则，朗读恢复正常。',
     },
     {
-      icon: iconNarrow,
-      title: '发送框短了一大截',
-      body: '宽度改成弹幕区的一半、最长 260px（跟着屏幕缩放走），以前那条横在屏幕下方、挡着游戏操作的长框没有了。',
-    },
-    {
-      icon: iconNoClick,
-      title: '右键不再弹菜单',
-      body: '弹幕窗和发送框上点右键不再弹出菜单，手滑点到也不会打断弹幕。',
+      icon: iconClock,
+      title: '电脑时间不准，朗读也会失败',
+      body: '系统时间跟实际时间差 5 分钟以上，合成的鉴权参数就会算错、被服务端拒掉。现在遇到这种情况会先按微软服务器的时间校准，再自动重试，不用手动改系统时间。',
     },
   ],
   also: [
     {
-      title: '设置页的穿透开关还在',
-      body: '不想记新按钮也行，设置页「弹幕窗」里的穿透开关照旧能用，两边开的是同一个。',
+      title: '这次只动朗读',
+      body: '连接、弹幕窗、发送框、筛选都没改，从 v1.4.0 升上来就是上面这两个修复。',
+    },
+    {
+      title: '为什么以前不容易发现',
+      body: '同一台电脑、同一个网络上，用 Edge 浏览器的「大声朗读」却是正常的，弹幕显示也一切正常，所以很难判断是软件坏了还是网络问题。',
     },
   ],
 }
@@ -180,7 +186,7 @@ export const compare = {
     {
       title: '体积与占用',
       official: '整套客户端功能很全，安装包和运行时占用也相应更大。',
-      ours: '安装包 2.9 MB，装完占硬盘 12 MB，长时间挂着占用不越涨越多。',
+      ours: '安装包 3.0 MB，装完占硬盘 12 MB，长时间挂着占用不越涨越多。',
     },
   ],
   footnote: '这里只列差异项。官方客户端在礼物特效、粉丝互动这些场景上更完整，两者不冲突，可以同时用。',
@@ -207,9 +213,9 @@ export const privacy = {
 
 export const download = {
   eyebrow: '下载',
-  title: '下载 bili-danmu v1.4.0',
+  title: '下载 bili-danmu v1.4.1',
   platform: 'Windows 10 / 11（x64）',
-  size: '2.9 MB',
+  size: '3.0 MB',
   note: '双击安装，不需要额外运行环境',
   steps: [
     '下载安装包，双击装好',

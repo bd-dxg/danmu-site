@@ -7,7 +7,7 @@ markdownStyles: false
 hero:
   name: bili-danmu
   text: 不跟游戏抢资源的弹幕助手
-  tagline: 2.9 MB 装完就能用。透明悬浮窗叠在游戏画面上，鼠标穿透不拦点击，弹幕还能念出来。
+  tagline: 3.0 MB 装完就能用。透明悬浮窗叠在游戏画面上，鼠标穿透不拦点击，弹幕还能念出来。
   image:
     src: /imgs/bili-danmu/app-icon.webp
     alt: bili-danmu 图标

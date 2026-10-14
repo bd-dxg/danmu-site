@@ -9,3 +9,5 @@ export const iconPointer = '<path d="m5 3.5 5.6 15.6 2.4-6.4 6.4-2.4L5 3.5Z"/>'
 export const iconNarrow = '<path d="M10 5.5 7 12l3 6.5M14 5.5 17 12l-3 6.5M4 12h4M16 12h4"/>'
 export const iconNoClick =
   '<rect x="7" y="3" width="10" height="14" rx="5"/><path d="M12 3v5"/><path d="m4.5 20.5 15-15"/>'
+export const iconVolumeOff = '<path d="M11 5 6.5 9H3.5v6h3L11 19V5Z"/><path d="m16 10 4 4M20 10l-4 4"/>'
+export const iconClock = '<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.2l3.4 2"/>'
