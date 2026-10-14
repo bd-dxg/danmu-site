@@ -1,5 +1,5 @@
 // douyin-danmu 落地页文案。区块组件只负责渲染，文案集中在这里。
-import { iconBox, iconChip, iconMinusCircle, iconNoClick, iconPointer, iconRefresh } from './icons'
+import { iconBox, iconChip, iconClock, iconMinusCircle, iconRefresh, iconVolumeOff } from './icons'
 
 const REPO_URL = 'https://github.com/bd-dxg/douyin-danmu'
 
@@ -102,27 +102,31 @@ export const showcase = {
   },
 }
 
-// 本次更新（v0.1.3）两条都在弹幕窗上：下沿的穿透快捷开关 + 屏蔽右键菜单
+// 本次更新（v0.1.4）只修朗读：微软改了鉴权规则、本机时间不准，两种都会让朗读整段失败
 export const update = {
-  badge: 'v0.1.3',
+  badge: 'v0.1.4',
   title: '这次更新了什么',
-  lead: '一句话：开了穿透也能就地关掉，不用再切回主界面。两条改的都是弹幕窗，设置项一个没动。',
+  lead: '一句话：朗读没声音的两种原因都修好了。这次只动朗读这一块，弹幕窗、设置项一个没改。',
   changes: [
     {
-      icon: iconPointer,
-      title: '弹幕窗下沿多了个穿透小窗',
-      body: '开着穿透时弹幕窗收不到鼠标，以前只能回主界面把穿透关掉；现在点弹幕窗下沿的小按钮就能开关。按钮颜色实时反映穿透状态，主界面里改了穿透，小窗 2 秒内自己跟上。',
+      icon: iconVolumeOff,
+      title: '微软改了鉴权规则，朗读全哑',
+      body: '微软 10 月起调整了在线朗读服务的鉴权方式，一部分人的朗读会整段失败。这一版跟上了新规则，朗读恢复正常。',
     },
     {
-      icon: iconNoClick,
-      title: '右键不再弹菜单',
-      body: '弹幕窗和穿透小窗上点右键不再弹出 WebView2 自带的菜单，手滑点到也不会打断弹幕。',
+      icon: iconClock,
+      title: '电脑时间不准，朗读也会失败',
+      body: '系统时间跟实际时间差 5 分钟以上，合成的鉴权参数就会算错、被服务端拒掉。现在遇到这种情况会先按微软服务器的时间校准，再自动重试，不用手动改系统时间。',
     },
   ],
   also: [
     {
-      title: '小窗跟着弹幕窗一起动',
-      body: '小窗吸附在弹幕窗正下方，和面板背景左边缘对齐，拖动弹幕窗它一起走，不用单独摆。',
+      title: '这次只动朗读',
+      body: '连接、弹幕窗、登录、设置项都没改，从 v0.1.3 升上来就是上面这两个修复。',
+    },
+    {
+      title: '为什么以前不容易发现',
+      body: '同一台电脑、同一个网络上，用 Edge 浏览器的「大声朗读」却是正常的，弹幕显示也一切正常，所以很难判断是软件坏了还是网络问题。',
     },
   ],
 }
@@ -167,7 +171,7 @@ export const privacy = {
 
 export const download = {
   eyebrow: '下载',
-  title: '下载 douyin-danmu v0.1.3',
+  title: '下载 douyin-danmu v0.1.4',
   platform: 'Windows 10 / 11（x64）',
   size: '3 MB',
   note: '双击安装，不需要额外运行环境',
