@@ -8,7 +8,7 @@ const products = [
     icon: '/imgs/bili-danmu/app-icon.webp',
     tagline: 'B 站直播弹幕助手',
     desc: '透明悬浮窗叠在游戏画面上，不挡游戏不拦鼠标；14 个中文音色把弹幕念出来；断线自己重连。',
-    tags: ['3.0 MB', 'v1.4.1', '弹幕朗读', '能发弹幕'],
+    tags: ['3.0 MB', 'v1.5.0', '弹幕朗读', '能发弹幕'],
     href: '/bili-danmu',
     releaseUrl: 'https://github.com/bd-dxg/bili-danmu/releases/latest',
   },

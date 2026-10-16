@@ -83,7 +83,7 @@ tsconfig.json                  类型检查配置
 
 这些值没有收敛到常量，改的时候别漏：
 
-- **bili 版本号**（`v1.4.1`）：`data/bili-danmu.ts` 的 `download.title` 与 `update.badge`、`LandingProducts.vue` 的 `tags`
+- **bili 版本号**（`v1.5.0`）：`data/bili-danmu.ts` 的 `download.title` 与 `update.badge`、`LandingProducts.vue` 的 `tags`
 - **douyin 版本号**（`v0.1.4`）：`data/douyin-danmu.ts` 的 `download.title` 与 `update.badge`、`LandingProducts.vue` 的 `tags`
 - **体积数字**（bili `3.0 MB` / `12 MB`，douyin `3 MB`）：`data/*.ts`、`LandingProducts.vue` 的 `tags`、`config.ts` 的 `description` 与 `og:description`
 - **仓库地址**：`data/*.ts` 的 `REPO_URL`、`LandingProducts.vue` 的 `releaseUrl`、`docs/bili-danmu.md` 与 `docs/douyin-danmu.md` 的 action 链接
