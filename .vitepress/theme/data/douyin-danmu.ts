@@ -1,10 +1,19 @@
 // douyin-danmu 落地页文案。区块组件只负责渲染，文案集中在这里。
-import { iconBox, iconChip, iconClock, iconMinusCircle, iconRefresh, iconVolumeOff } from './icons'
+import {
+  iconAtMention,
+  iconBox,
+  iconChip,
+  iconFaceMute,
+  iconFollowList,
+  iconMinusCircle,
+  iconPageCheck,
+  iconRefresh,
+} from './icons'
 
 const REPO_URL = 'https://github.com/bd-dxg/douyin-danmu'
 
 export const stats = [
-  { value: '3', unit: 'MB', label: '安装包体积' },
+  { value: '3.3', unit: 'MB', label: '安装包体积' },
   { value: '120', unit: '条', label: '弹幕最多保留' },
   { value: '14', unit: '种', label: '中文朗读音色' },
   { value: '0', unit: '条', label: '信息收集与日志上传' },
@@ -18,7 +27,7 @@ export const highlights = {
     {
       icon: iconBox,
       title: '小到离谱',
-      body: '安装包 3 MB（0.1.0 实测 3.08 MB）。不用额外装浏览器组件（Windows 自带 WebView2）、不用装 Python、不用下载语音模型，双击下一步就能用。',
+      body: '安装包 3.3 MB（0.2.0 实测）。不用额外装浏览器组件（Windows 自带 WebView2）、不用装 Python、不用下载语音模型，双击下一步就能用。',
     },
     {
       icon: iconChip,
@@ -102,31 +111,41 @@ export const showcase = {
   },
 }
 
-// 本次更新（v0.1.4）只修朗读：微软改了鉴权规则、本机时间不准，两种都会让朗读整段失败
+// 本次更新（v0.2.0）：新增关注在播、表情弹幕、@提及朗读，并修掉连上助手后网页端掉线这个老毛病
 export const update = {
-  badge: 'v0.1.4',
+  badge: 'v0.2.0',
   title: '这次更新了什么',
-  lead: '一句话：朗读没声音的两种原因都修好了。这次只动朗读这一块，弹幕窗、设置项一个没改。',
+  lead: '一句话：多了「关注在播」列表，表情和 @提及都有了自己的处理方式，连上助手后网页端掉线这个老毛病也修了。',
   changes: [
     {
-      icon: iconVolumeOff,
-      title: '微软改了鉴权规则，朗读全哑',
-      body: '微软 10 月起调整了在线朗读服务的鉴权方式，一部分人的朗读会整段失败。这一版跟上了新规则，朗读恢复正常。',
+      icon: iconFollowList,
+      title: '直播间里多了「关注在播」',
+      body: '列出你已经关注、此刻正在开播的主播名，点名字直接连上，不用再手抄房间号。',
     },
     {
-      icon: iconClock,
-      title: '电脑时间不准，朗读也会失败',
-      body: '系统时间跟实际时间差 5 分钟以上，合成的鉴权参数就会算错、被服务端拒掉。现在遇到这种情况会先按微软服务器的时间校准，再自动重试，不用手动改系统时间。',
+      icon: iconFaceMute,
+      title: '表情弹幕显示成 [微笑]，朗读默认不念',
+      body: '网页端发的表情包现在能认出来，在弹幕窗里显示成 [微笑] 这样的中括号形式，一眼能看出是表情而不是文字；念的时候默认跳过表情。',
+    },
+    {
+      icon: iconAtMention,
+      title: '@提及念成「某某对某某说 内容」',
+      body: '别人 @ 你的弹幕会念成「某某对某某说 内容」，@ 号本身不会被念出来。',
+    },
+    {
+      icon: iconPageCheck,
+      title: '连上助手，网页端不再被挤下线',
+      body: '以前助手一连上，手机或电脑网页里正在看的同一场直播就会提示「已在其他地方进入直播间」。这一版两者可以同时看。',
     },
   ],
   also: [
     {
-      title: '这次只动朗读',
-      body: '连接、弹幕窗、登录、设置项都没改，从 v0.1.3 升上来就是上面这两个修复。',
+      title: '表情朗读开关现在真的关得住',
+      body: '之前关掉表情朗读，写在普通弹幕正文里的表情（如「[发呆][发呆]」）还是会被念出来，已经修好。开关只管朗读，弹幕窗里表情照常显示。',
     },
     {
-      title: '为什么以前不容易发现',
-      body: '同一台电脑、同一个网络上，用 Edge 浏览器的「大声朗读」却是正常的，弹幕显示也一切正常，所以很难判断是软件坏了还是网络问题。',
+      title: '设置页不再上下跳',
+      body: '切换开关时的保存提示改成右下角浮层，不再把页面内容顶得上下跳。',
     },
   ],
 }
@@ -143,9 +162,9 @@ export const features = {
     { title: '欢迎信息', desc: '进房 / 关注 / 点赞提示行。默认关 —— 这类消息比弹幕还多。' },
     {
       title: '弹幕朗读',
-      desc: '14 个中文音色（普通话 / 方言 / 粤语 / 台湾），语速音量可调，念之前先清洗 emoji 和链接。',
+      desc: '14 个中文音色（普通话 / 方言 / 粤语 / 台湾），语速音量可调，念之前先清洗 emoji 和链接；表情弹幕默认不念，@提及念成「某某对某某说 内容」。',
     },
-    { title: '其他', desc: '最近房间一键直连、系统托盘常驻、运行状态一览、统一日志。' },
+    { title: '其他', desc: '最近房间一键直连 / 关注在播、系统托盘常驻、运行状态一览、统一日志。' },
   ],
   todo: '还没做：发送弹幕、滚动弹幕、顶弹、用户屏蔽、Windows 系统 TTS、开机自启、全局快捷键、自动更新。',
 }
@@ -171,9 +190,9 @@ export const privacy = {
 
 export const download = {
   eyebrow: '下载',
-  title: '下载 douyin-danmu v0.1.4',
+  title: '下载 douyin-danmu v0.2.0',
   platform: 'Windows 10 / 11（x64）',
-  size: '3 MB',
+  size: '3.3 MB',
   note: '双击安装，不需要额外运行环境',
   steps: [
     '下载安装包，双击装好（首次运行如提示缺少 WebView2，Win10 装一下即可，Win11 自带）',

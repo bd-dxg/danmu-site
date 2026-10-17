@@ -17,7 +17,7 @@ const products = [
     icon: '/imgs/douyin-danmu/app-icon.png',
     tagline: '抖音直播弹幕助手',
     desc: '给用 OBS 推流的主播：桌面看弹幕 + Edge TTS 朗读，鼠标穿透不挡游戏；不登录也能收弹幕、进场、关注、点赞。',
-    tags: ['3.0 MB', 'v0.1.4', '弹幕朗读', '只读弹幕'],
+    tags: ['3.3 MB', 'v0.2.0', '弹幕朗读', '只读弹幕'],
     href: '/douyin-danmu',
     releaseUrl: 'https://github.com/bd-dxg/douyin-danmu/releases/latest',
   },
