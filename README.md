@@ -84,7 +84,8 @@ tsconfig.json                  类型检查配置
 这些值没有收敛到常量，改的时候别漏：
 
 - **bili 版本号**（`v1.5.0`）：`data/bili-danmu.ts` 的 `download.title` 与 `update.badge`、`LandingProducts.vue` 的 `tags`
-- **douyin 版本号**（`v0.2.0`）：`data/douyin-danmu.ts` 的 `download.title` 与 `update.badge`、`LandingProducts.vue` 的 `tags`
+- **douyin 版本号**（`v0.2.1`）：`data/douyin-danmu.ts` 顶部的 `VERSION` 常量（`update.badge` 与 `download.title` 都引用它）、`LandingProducts.vue` 的 `tags`
+- **douyin 下载直链**（走 `v4.gh-proxy.org` 代理，国内可直下）：`data/douyin-danmu.ts` 的 `DOWNLOAD_URL`、`LandingProducts.vue` 里 douyin 卡片的 `releaseUrl`、`docs/douyin-danmu.md` hero 的「下载安装包」链接。**这三处都写死了版本号和文件名**，发版时必须一起改，否则下载 404
 - **体积数字**（bili `3.0 MB` / `12 MB`，douyin `3.3 MB`）：`data/*.ts`、`LandingProducts.vue` 的 `tags`、`config.ts` 的 `description` 与 `og:description`
 - **仓库地址**：`data/*.ts` 的 `REPO_URL`、`LandingProducts.vue` 的 `releaseUrl`、`docs/bili-danmu.md` 与 `docs/douyin-danmu.md` 的 action 链接
 - **蓝奏网盘链接**（`https://wwbor.lanzouu.com/b03fmf2u0j`，密码 `6u67`）：两个产品共用同一个分享链接，出现在 `docs/bili-danmu.md` 与 `docs/douyin-danmu.md` 的 hero action 里，改一处就得改两处

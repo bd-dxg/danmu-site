@@ -1,16 +1,19 @@
 // douyin-danmu 落地页文案。区块组件只负责渲染，文案集中在这里。
 import {
-  iconAtMention,
   iconBox,
   iconChip,
-  iconFaceMute,
   iconFollowList,
   iconMinusCircle,
-  iconPageCheck,
   iconRefresh,
+  iconTextInput,
 } from './icons'
 
 const REPO_URL = 'https://github.com/bd-dxg/douyin-danmu'
+
+// 发版只需改这一行：版本号、下载文件名、代理地址都跟着它走
+const VERSION = '0.2.1'
+// 国内直连加速：v4.gh-proxy.org 代理 GitHub 下载，原链接直接拼在后面
+const DOWNLOAD_URL = `https://v4.gh-proxy.org/${REPO_URL}/releases/download/v${VERSION}/douyin-danmu_${VERSION}_x64-setup.exe`
 
 export const stats = [
   { value: '3.3', unit: 'MB', label: '安装包体积' },
@@ -27,7 +30,7 @@ export const highlights = {
     {
       icon: iconBox,
       title: '小到离谱',
-      body: '安装包 3.3 MB（0.2.0 实测）。不用额外装浏览器组件（Windows 自带 WebView2）、不用装 Python、不用下载语音模型，双击下一步就能用。',
+      body: '安装包 3.3 MB（0.2.1 实测）。不用额外装浏览器组件（Windows 自带 WebView2）、不用装 Python、不用下载语音模型，双击下一步就能用。',
     },
     {
       icon: iconChip,
@@ -111,41 +114,31 @@ export const showcase = {
   },
 }
 
-// 本次更新（v0.2.0）：新增关注在播、表情弹幕、@提及朗读，并修掉连上助手后网页端掉线这个老毛病
+// 本次更新（v0.2.1）：「我的直播间」固定排在关注列表第一位；直播间号也认抖音号和整条链接
 export const update = {
-  badge: 'v0.2.0',
+  badge: `v${VERSION}`,
   title: '这次更新了什么',
-  lead: '一句话：多了「关注在播」列表，表情和 @提及都有了自己的处理方式，连上助手后网页端掉线这个老毛病也修了。',
+  lead: '一句话：关注列表顶上多了「我的直播间」，开播前也能先把助手连上；房间号输入框现在认抖音号，粘一整条链接也能识别。',
   changes: [
     {
       icon: iconFollowList,
-      title: '直播间里多了「关注在播」',
-      body: '列出你已经关注、此刻正在开播的主播名，点名字直接连上，不用再手抄房间号。',
+      title: '「我的直播间」固定排第一位',
+      body: '「关注在播」列表第一位固定是你自己的直播间，点一下就连回自己房间 —— 开播前也能先把助手连上，不用等有人说话才知道连没连对。',
     },
     {
-      icon: iconFaceMute,
-      title: '表情弹幕显示成 [微笑]，朗读默认不念',
-      body: '网页端发的表情包现在能认出来，在弹幕窗里显示成 [微笑] 这样的中括号形式，一眼能看出是表情而不是文字；念的时候默认跳过表情。',
-    },
-    {
-      icon: iconAtMention,
-      title: '@提及念成「某某对某某说 内容」',
-      body: '别人 @ 你的弹幕会念成「某某对某某说 内容」，@ 号本身不会被念出来。',
-    },
-    {
-      icon: iconPageCheck,
-      title: '连上助手，网页端不再被挤下线',
-      body: '以前助手一连上，手机或电脑网页里正在看的同一场直播就会提示「已在其他地方进入直播间」。这一版两者可以同时看。',
+      icon: iconTextInput,
+      title: '直播间号现在也认抖音号',
+      body: '输入框数字、字母都收，像 88866kzi 这样的抖音号直接填；从浏览器地址栏粘一整条直播间链接也能自动认出房间号。',
     },
   ],
   also: [
     {
-      title: '表情朗读开关现在真的关得住',
-      body: '之前关掉表情朗读，写在普通弹幕正文里的表情（如「[发呆][发呆]」）还是会被念出来，已经修好。开关只管朗读，弹幕窗里表情照常显示。',
+      title: '「我的直播间」不看开播状态',
+      body: '从没开过播、房间还不存在的账号，点它会提示「没有解析出房间号…」，这是正常的，不是 bug。',
     },
     {
-      title: '设置页不再上下跳',
-      body: '切换开关时的保存提示改成右下角浮层，不再把页面内容顶得上下跳。',
+      title: '抖音号里带下划线的账号暂不支持',
+      body: '这类账号暂时识别不出来，还是用直播间号连接。',
     },
   ],
 }
@@ -190,7 +183,7 @@ export const privacy = {
 
 export const download = {
   eyebrow: '下载',
-  title: '下载 douyin-danmu v0.2.0',
+  title: `下载 douyin-danmu v${VERSION}`,
   platform: 'Windows 10 / 11（x64）',
   size: '3.3 MB',
   note: '双击安装，不需要额外运行环境',
@@ -200,6 +193,7 @@ export const download = {
     '想听弹幕就去朗读页开开关、选音色；想收礼物消息再扫码登录',
   ],
   repoUrl: REPO_URL,
+  downloadUrl: DOWNLOAD_URL,
   releaseUrl: `${REPO_URL}/releases/latest`,
   license: { name: 'GNU GPL v3', url: `${REPO_URL}/blob/main/LICENSE` },
   creditsLabel: '弹幕协议实现参考',

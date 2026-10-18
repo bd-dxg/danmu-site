@@ -14,7 +14,7 @@ hero:
   actions:
     - theme: brand
       text: 下载安装包
-      link: https://github.com/bd-dxg/douyin-danmu/releases/latest
+      link: https://v4.gh-proxy.org/https://github.com/bd-dxg/douyin-danmu/releases/download/v0.2.1/douyin-danmu_0.2.1_x64-setup.exe
     - theme: alt
       text: 蓝奏下载密码:6u67
       link: https://wwbor.lanzouu.com/b03fmf2u0j

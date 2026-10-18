@@ -12,6 +12,7 @@ defineProps<{
     note: string
     steps: string[]
     repoUrl: string
+    downloadUrl?: string
     releaseUrl: string
     license: { name: string; url: string }
     creditsLabel: string
@@ -62,14 +63,22 @@ defineProps<{
             </ol>
 
             <div class="cta__actions">
-              <a class="btn btn--brand" :href="download.releaseUrl" target="_blank" rel="noreferrer">下载安装包</a>
+              <a
+                class="btn btn--brand"
+                :href="download.downloadUrl ?? download.releaseUrl"
+                target="_blank"
+                rel="noreferrer">
+                下载安装包
+              </a>
               <a class="btn btn--ghost" :href="download.repoUrl" target="_blank" rel="noreferrer">查看源码</a>
             </div>
 
             <p class="cta__meta">
               以
               <a :href="download.license.url" target="_blank" rel="noreferrer">{{ download.license.name }}</a>
-              开源 · {{ download.creditsLabel }}
+              开源 ·
+              <a :href="download.releaseUrl" target="_blank" rel="noreferrer">历史版本</a>
+              · {{ download.creditsLabel }}
               <template v-for="(item, i) in download.credits" :key="item.url">
                 <span v-if="i">、</span>
                 <a :href="item.url" target="_blank" rel="noreferrer">{{ item.name }}</a>
