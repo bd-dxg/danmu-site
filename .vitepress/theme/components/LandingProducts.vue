@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import ScrollReveal from './ScrollReveal.vue'
+// 版本号与直链只在 data/<产品>.ts 里写一次，这里给现成的
+import { download as biliDownload } from '../data/bili-danmu'
+import { download as douyinDownload } from '../data/douyin-danmu'
 
 // 首页产品卡：两款产品各自的入口、体积、版本与一句话说明
 const products = [
@@ -8,9 +11,9 @@ const products = [
     icon: '/imgs/bili-danmu/app-icon.webp',
     tagline: 'B 站直播弹幕助手',
     desc: '透明悬浮窗叠在游戏画面上，不挡游戏不拦鼠标；14 个中文音色把弹幕念出来；断线自己重连。',
-    tags: ['3.0 MB', 'v1.5.0', '弹幕朗读', '能发弹幕'],
+    tags: ['3.0 MB', 'v1.6.0', '弹幕朗读', '能发弹幕'],
     href: '/bili-danmu',
-    releaseUrl: 'https://github.com/bd-dxg/bili-danmu/releases/latest',
+    releaseUrl: biliDownload.downloadUrl,
   },
   {
     name: 'douyin-danmu',
@@ -19,9 +22,7 @@ const products = [
     desc: '给用 OBS 推流的主播：桌面看弹幕 + Edge TTS 朗读，鼠标穿透不挡游戏；不登录也能收弹幕、进场、关注、点赞。',
     tags: ['3.3 MB', 'v0.2.1', '弹幕朗读', '只读弹幕'],
     href: '/douyin-danmu',
-    // 国内加速代理，后面直接拼 GitHub 原始下载链接
-    releaseUrl:
-      'https://v4.gh-proxy.org/https://github.com/bd-dxg/douyin-danmu/releases/download/v0.2.1/douyin-danmu_0.2.1_x64-setup.exe',
+    releaseUrl: douyinDownload.downloadUrl,
   },
 ]
 </script>

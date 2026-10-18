@@ -14,7 +14,7 @@ hero:
   actions:
     - theme: brand
       text: 下载安装包
-      link: https://github.com/bd-dxg/bili-danmu/releases/latest
+      link: https://v4.gh-proxy.org/https://github.com/bd-dxg/bili-danmu/releases/download/v1.6.0/bili-danmu_1.6.0_x64-setup.exe
     - theme: alt
       text: 蓝奏下载密码:6u67
       link: https://wwbor.lanzouu.com/b03fmf2u0j

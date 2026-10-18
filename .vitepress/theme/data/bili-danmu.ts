@@ -1,16 +1,12 @@
 // bili-danmu 落地页文案。区块组件只负责渲染，文案集中在这里。
-import {
-  iconBox,
-  iconChip,
-  iconFaceMute,
-  iconFollowList,
-  iconMinusCircle,
-  iconPageCheck,
-  iconRefresh,
-  iconTextInput,
-} from './icons'
+import { iconAtMention, iconBox, iconChip, iconFollowList, iconMinusCircle, iconRefresh } from './icons'
 
 const REPO_URL = 'https://github.com/bd-dxg/bili-danmu'
+
+// 发版只需改这一行：版本号、下载文件名、代理地址都跟着它走
+const VERSION = '1.6.0'
+// 国内直连加速：v4.gh-proxy.org 代理 GitHub 下载，原链接直接拼在后面
+const DOWNLOAD_URL = `https://v4.gh-proxy.org/${REPO_URL}/releases/download/v${VERSION}/bili-danmu_${VERSION}_x64-setup.exe`
 
 export const stats = [
   { value: '3.0', unit: 'MB', label: '安装包体积' },
@@ -111,41 +107,31 @@ export const showcase = {
   },
 }
 
-// 本次更新（v1.5.0）：新增关注在播，表情弹幕不再被念成文字，发送框与设置页的几处小毛病一并修掉
+// 本次更新（v1.6.0）：@提及的人不再丢，「关注在播」首位固定成自己的直播间
 export const update = {
-  badge: 'v1.5.0',
+  badge: `v${VERSION}`,
   title: '这次更新了什么',
-  lead: '一句话：多了「关注在播」一行，表情弹幕不再被念成文字，发送框和设置页的几处小毛病也顺手修了。',
+  lead: '一句话：被 @ 的人不再是一件没头没尾的话，弹幕里能看出是谁对谁说的；「关注在播」首位固定你自己的直播间，开播前也能先连上。',
   changes: [
     {
+      icon: iconAtMention,
+      title: '@提及不再丢名字',
+      body: '别人 @ 某人时，B 站把被 @ 的名字单独放在报文里、正文里反而没有，以前只能看到一句没头没尾的话。现在弹幕窗显示成「@名字 正文」，名字用弹幕用户名同一种颜色，一眼看出是谁对谁说的。',
+    },
+    {
       icon: iconFollowList,
-      title: '直播间里多了「关注在播」',
-      body: '列出你已关注、并且正在开播的主播名，点名字直接连上那个直播间，不用再翻房间号。登录后自动查一次，想刷新点右侧的「刷新」。',
-    },
-    {
-      icon: iconFaceMute,
-      title: '表情弹幕不再被念成文字',
-      body: '表情在弹幕窗里显示成 [冲鸭]、[生气] 这样的中括号形式，一眼能看出是表情而不是文字；朗读默认跳过表情，「文字 + 表情」混在同一条的只念文字那部分。',
-    },
-    {
-      icon: iconTextInput,
-      title: '发送框不再只显示 6 个字',
-      body: '输入区以前塞不下更多字，连占位提示都被截断；现在能显示约 8 个中文，输入框和右端「穿透」按钮的高度也终于对齐了。',
-    },
-    {
-      icon: iconPageCheck,
-      title: '设置页的两处小毛病',
-      body: '切换开关时的「✓ 已应用并保存」不再把页面内容顶得抖动，改成右下角浮层提示；「弹幕过滤」「朗读筛选」两页也不再冒出多余的竖向滚动条。',
+      title: '「我的直播间」固定排第一位',
+      body: '「关注在播」那一行的首位固定是你自己的直播间，点一下直接连上，不看开播状态 —— 开播前也能先把助手连对房间。未登录、没有直播间、查询失败时这一条不出现，不影响后面的关注列表。',
     },
   ],
   also: [
     {
-      title: '想连表情一起念也行',
-      body: '默认不念，是因为表情在数据里只是「生气」「冲鸭」这样的词，念出来像一句莫名其妙的话；想全念，去「朗读 → 朗读筛选」打开「朗读表情弹幕」。',
+      title: '朗读里也说得清是谁对谁',
+      body: '被 @ 的弹幕念成「发送者对被提及者说 正文」，不看「念用户名」开关也知道是谁跟谁说话；只 @ 人不说话的那种（正文为空）整条跳过，不念。',
     },
     {
       title: '这次没动别的',
-      body: '连接、弹幕窗、朗读、筛选都没改，从 v1.4.1 升上来就是上面这几处新增和修复。',
+      body: '连接、弹幕窗、朗读、筛选都没改，从 v1.5.0 升上来就是上面这两处新增。',
     },
   ],
 }
@@ -163,12 +149,12 @@ export const features = {
     },
     {
       title: '弹幕朗读',
-      desc: '14 个中文音色（普通话 / 方言 / 粤语 / 台湾），语速音量可调，念前先清洗 emoji 和链接，表情弹幕默认不念。',
+      desc: '14 个中文音色（普通话 / 方言 / 粤语 / 台湾），语速音量可调，念前先清洗 emoji 和链接，表情弹幕默认不念，@提及念成「某某对某某说 内容」。',
     },
     { title: '礼物 / SC / 上舰', desc: '显示在弹幕上方的独立区域，可设金额门槛，连击只占一行显示总数，也能念出来。' },
     {
       title: '一键回房 / 关注在播',
-      desc: '最近房间点一下直连；「关注在播」列出正在开播的关注主播，点名字就进。系统托盘常驻，运行状态一览。',
+      desc: '最近房间点一下直连；「关注在播」首位固定是你自己的直播间（不看开播状态），后面列出正在开播的关注主播，点名字就进。系统托盘常驻，运行状态一览。',
     },
     { title: '数据不外流', desc: '配置存在本机，不收集任何信息、不上传日志。' },
   ],
@@ -228,7 +214,7 @@ export const privacy = {
 
 export const download = {
   eyebrow: '下载',
-  title: '下载 bili-danmu v1.5.0',
+  title: `下载 bili-danmu v${VERSION}`,
   platform: 'Windows 10 / 11（x64）',
   size: '3.0 MB',
   note: '双击安装，不需要额外运行环境',
@@ -238,6 +224,7 @@ export const download = {
     '填直播间号点「连接」，弹幕窗就出来了',
   ],
   repoUrl: REPO_URL,
+  downloadUrl: DOWNLOAD_URL,
   releaseUrl: `${REPO_URL}/releases/latest`,
   license: { name: 'GNU GPL v3', url: `${REPO_URL}/blob/main/LICENSE` },
   creditsLabel: '弹幕协议实现参考',
