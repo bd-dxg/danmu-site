@@ -19,7 +19,7 @@ pnpm build    # 构建到 .vitepress/dist（推 main 由 CI 自动构建部署�
 
 1. `data/<产品>.ts` 顶部的 `const VERSION = 'x.y.z'`
    → 自动带动 `update.badge`、`download.title`、`download.downloadUrl`、首页卡片上的下载按钮，不用手改
-2. 同文件的 `update` 对象：换成新版的更新内容（`changes` 主条目 + `also` 补充）
+2. 同文件的 `update` 对象：`badge` 跟着 `VERSION` 走，只需手写 `lead` 与 `changes` / `also` 的新版内容
 3. `LandingProducts.vue` 里该产品卡片的 `tags`：把 `v<旧版本>` 换成 `v<新版本>`
 4. `docs/<产品>.md` hero 的「下载安装包」`link`：完整直链
 5. 体积有变化时：`data/<产品>.ts` 的 `stats` 与 `highlights.cards[0].body`（只有 douyin 那句带「（0.2.1 实测）」）、`LandingProducts.vue` 的 `tags`、`config.ts` 的 `description` 与 `og:description`
