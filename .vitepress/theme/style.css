@@ -580,6 +580,15 @@ html .VPHero .image-src {
   text-align: center;
 }
 
+/* 截图点开放大（medium-zoom）：默认样式没有 z-index，会被导航栏压住 */
+.medium-zoom-overlay {
+  z-index: 100;
+}
+
+.medium-zoom-image--opened {
+  z-index: 101;
+}
+
 /* --------------------------------------------------------------------------
    7. 滚动淡入（由 ScrollReveal.vue 驱动，无 JS 时保持可见）
    -------------------------------------------------------------------------- */

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { onBeforeUnmount, onMounted } from 'vue'
+import mediumZoom from 'medium-zoom'
 import ScrollReveal from './ScrollReveal.vue'
 
 // 尺寸写进 width/height，避免图片加载完才撑开导致页面跳动
@@ -29,6 +31,18 @@ const props = defineProps<{
 }>()
 
 const { hero, settings } = props.showcase
+
+// 截图点一下放大看细节。只在客户端挂，SSR 阶段没有 DOM
+let zoom: ReturnType<typeof mediumZoom> | undefined
+
+onMounted(() => {
+  zoom = mediumZoom('#showcase img, #interface img', {
+    background: 'rgba(255, 255, 255, 0.92)',
+    margin: 32,
+  })
+})
+
+onBeforeUnmount(() => zoom?.detach())
 </script>
 
 <template>
@@ -49,7 +63,10 @@ const { hero, settings } = props.showcase
               <img :src="hero.image.src" :width="hero.image.width" :height="hero.image.height" :alt="hero.image.alt" />
             </div>
           </div>
-          <figcaption class="bd-caption">{{ hero.caption }}</figcaption>
+          <figcaption class="bd-caption">
+            {{ hero.caption }}
+            <span class="shot__hint">点击图片看大图</span>
+          </figcaption>
         </figure>
       </ScrollReveal>
     </div>
@@ -80,6 +97,7 @@ const { hero, settings } = props.showcase
             <figcaption class="bd-caption">
               <strong>{{ item.title }}</strong>
               · {{ item.desc }}
+              <span class="shot__hint">点击图片看大图</span>
             </figcaption>
           </figure>
         </ScrollReveal>
@@ -107,6 +125,15 @@ const { hero, settings } = props.showcase
 .bd-caption strong {
   color: var(--bd-text-1);
   font-weight: 600;
+}
+
+/* 放大提示：另起一行、淡一点，不抢描述本身的注意力 */
+.shot__hint {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--bd-text-3);
+  font-size: 0.8125rem;
+  opacity: 0.65;
 }
 
 #interface .bd-grid {
