@@ -1,22 +1,22 @@
 // douyin-danmu 落地页文案。区块组件只负责渲染，文案集中在这里。
 import {
+  iconBell,
   iconBox,
   iconChip,
-  iconFollowList,
+  iconDownload,
   iconMinusCircle,
   iconRefresh,
-  iconTextInput,
 } from './icons'
 
 const REPO_URL = 'https://github.com/bd-dxg/douyin-danmu'
 
 // 发版只需改这一行：版本号、下载文件名、代理地址都跟着它走
-const VERSION = '0.2.1'
+const VERSION = '0.3.0'
 // 国内直连加速：v4.gh-proxy.org 代理 GitHub 下载，原链接直接拼在后面
 const DOWNLOAD_URL = `https://v4.gh-proxy.org/${REPO_URL}/releases/download/v${VERSION}/douyin-danmu_${VERSION}_x64-setup.exe`
 
 export const stats = [
-  { value: '3.3', unit: 'MB', label: '安装包体积' },
+  { value: '3.5', unit: 'MB', label: '安装包体积' },
   { value: '120', unit: '条', label: '弹幕最多保留' },
   { value: '14', unit: '种', label: '中文朗读音色' },
   { value: '0', unit: '条', label: '信息收集与日志上传' },
@@ -30,7 +30,7 @@ export const highlights = {
     {
       icon: iconBox,
       title: '小到离谱',
-      body: '安装包 3.3 MB（0.2.1 实测）。不用额外装浏览器组件（Windows 自带 WebView2）、不用装 Python、不用下载语音模型，双击下一步就能用。',
+      body: '安装包 3.5 MB（0.3.0 实测）。不用额外装浏览器组件（Windows 自带 WebView2）、不用装 Python、不用下载语音模型，双击下一步就能用。',
     },
     {
       icon: iconChip,
@@ -114,31 +114,36 @@ export const showcase = {
   },
 }
 
-// 本次更新（v0.2.1）：「我的直播间」固定排在关注列表第一位；直播间号也认抖音号和整条链接
+// 本次更新（v0.3.0）：接上自动更新，以后新版点一下自己装好
+// 注：本版是最后一个需要手动下载的版本
 export const update = {
   badge: `v${VERSION}`,
   title: '这次更新了什么',
-  lead: '一句话：关注列表顶上多了「我的直播间」，开播前也能先把助手连上；房间号输入框现在认抖音号，粘一整条链接也能识别。',
+  lead: '一句话：以后有新版本，点一下按钮就自己下载、验签、装好并重启，不用再回 GitHub 手动下。这一版是最后一个需要手动装的版本。',
   changes: [
     {
-      icon: iconFollowList,
-      title: '「我的直播间」固定排第一位',
-      body: '「关注在播」列表第一位固定是你自己的直播间，点一下就连回自己房间 —— 开播前也能先把助手连上，不用等有人说话才知道连没连对。',
+      icon: iconDownload,
+      title: '点一下就把新版装好',
+      body: '「关于」页的胶囊按钮承载完整流程：检查更新 → 检查中… → 发现新版本 → 下载 x% → 安装中… → 已是最新 / 重试，装完自己重启。另有「手动下」按钮直接下载安装包。',
     },
     {
-      icon: iconTextInput,
-      title: '直播间号现在也认抖音号',
-      body: '输入框数字、字母都收，像 88866kzi 这样的抖音号直接填；从浏览器地址栏粘一整条直播间链接也能自动认出房间号。',
+      icon: iconBell,
+      title: '更新提示挪到看得见的地方',
+      body: '关于页得主动点进去，主播平时根本看不到。现在侧边栏「关于软件」有新版时亮一个小红点，一打开就看见；检查频率从「只在启动时查一次」改成「启动 5 秒后查一次 + 之后每 6 小时一次」，连续开播几天不重启也不会漏。',
     },
   ],
   also: [
     {
-      title: '「我的直播间」不看开播状态',
-      body: '从没开过播、房间还不存在的账号，点它会提示「没有解析出房间号…」，这是正常的，不是 bug。',
+      title: '发现新版本就在后台静默下好安装包',
+      body: '点按钮时只剩「安装 → 重启」，秒级完成，不用盯着进度条。',
     },
     {
-      title: '抖音号里带下划线的账号暂不支持',
-      body: '这类账号暂时识别不出来，还是用直播间号连接。',
+      title: '签名校验 + 防降级',
+      body: '服务端公钥验签，验不过拒绝安装；签名里绑定的版本还必须与更新清单声明的版本一致，挡住「新版本号配旧发布包」的篡改。',
+    },
+    {
+      title: '旧的「版本更新提醒」已被取代',
+      body: '之前启动查 GitHub Releases、跳浏览器下载那一套已经去掉了，现在全在应用里完成。',
     },
   ],
 }
@@ -159,7 +164,7 @@ export const features = {
     },
     { title: '其他', desc: '最近房间一键直连 / 关注在播、系统托盘常驻、运行状态一览、统一日志。' },
   ],
-  todo: '还没做：发送弹幕、滚动弹幕、顶弹、用户屏蔽、Windows 系统 TTS、开机自启、全局快捷键、自动更新。',
+  todo: '还没做：发送弹幕、滚动弹幕、顶弹、用户屏蔽、Windows 系统 TTS、开机自启、全局快捷键。',
 }
 
 export const privacy = {
@@ -185,7 +190,7 @@ export const download = {
   eyebrow: '下载',
   title: `下载 douyin-danmu v${VERSION}`,
   platform: 'Windows 10 / 11（x64）',
-  size: '3.3 MB',
+  size: '3.5 MB',
   note: '双击安装，不需要额外运行环境',
   steps: [
     '下载安装包，双击装好（首次运行如提示缺少 WebView2，Win10 装一下即可，Win11 自带）',

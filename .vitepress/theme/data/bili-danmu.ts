@@ -1,15 +1,15 @@
 // bili-danmu 落地页文案。区块组件只负责渲染，文案集中在这里。
-import { iconAtMention, iconBox, iconChip, iconFollowList, iconMinusCircle, iconRefresh } from './icons'
+import { iconBell, iconBox, iconChip, iconDownload, iconMinusCircle, iconRefresh } from './icons'
 
 const REPO_URL = 'https://github.com/bd-dxg/bili-danmu'
 
 // 发版只需改这一行：版本号、下载文件名、代理地址都跟着它走
-const VERSION = '1.6.0'
+const VERSION = '1.7.1'
 // 国内直连加速：v4.gh-proxy.org 代理 GitHub 下载，原链接直接拼在后面
 const DOWNLOAD_URL = `https://v4.gh-proxy.org/${REPO_URL}/releases/download/v${VERSION}/bili-danmu_${VERSION}_x64-setup.exe`
 
 export const stats = [
-  { value: '3.0', unit: 'MB', label: '安装包体积' },
+  { value: '3.2', unit: 'MB', label: '安装包体积' },
   { value: '12', unit: 'MB', label: '装完占用硬盘' },
   { value: '14', unit: '种', label: '中文朗读音色' },
   { value: '0', unit: '条', label: '信息收集与日志上传' },
@@ -23,7 +23,7 @@ export const highlights = {
     {
       icon: iconBox,
       title: '小到离谱',
-      body: '安装包 3.0 MB，装完占硬盘 12 MB。不用额外装浏览器组件（Windows 自带）、不用装 Python、不用下载语音模型，双击下一步就能用。',
+      body: '安装包 3.2 MB，装完占硬盘 12 MB。不用额外装浏览器组件（Windows 自带）、不用装 Python、不用下载语音模型，双击下一步就能用。',
     },
     {
       icon: iconChip,
@@ -107,31 +107,35 @@ export const showcase = {
   },
 }
 
-// 本次更新（v1.6.0）：@提及的人不再丢，「关注在播」首位固定成自己的直播间
+// 本次更新（v1.7.1）：自动更新接上了，更新提示也挪到看得见的地方
 export const update = {
   badge: `v${VERSION}`,
   title: '这次更新了什么',
-  lead: '一句话：被 @ 的人不再是一件没头没尾的话，弹幕里能看出是谁对谁说的；「关注在播」首位固定你自己的直播间，开播前也能先连上。',
+  lead: '一句话：以后有新版本，点一下按钮就自己下载、验签、装好并重启，不用再回 GitHub 手动下；顺带把更新提示挪到了打开就能看见的地方。',
   changes: [
     {
-      icon: iconAtMention,
-      title: '@提及不再丢名字',
-      body: '别人 @ 某人时，B 站把被 @ 的名字单独放在报文里、正文里反而没有，以前只能看到一句没头没尾的话。现在弹幕窗显示成「@名字 正文」，名字用弹幕用户名同一种颜色，一眼看出是谁对谁说的。',
+      icon: iconDownload,
+      title: '点一下就把新版装好',
+      body: '「关于」页的按钮现在一条龙：自动下载 → 校验签名 → 静默安装 → 自己重启，不用再回 GitHub 手动下载、手动装。不想走自动流程时，旁边还有「手动下」按钮直接下安装包。',
     },
     {
-      icon: iconFollowList,
-      title: '「我的直播间」固定排第一位',
-      body: '「关注在播」那一行的首位固定是你自己的直播间，点一下直接连上，不看开播状态 —— 开播前也能先把助手连对房间。未登录、没有直播间、查询失败时这一条不出现，不影响后面的关注列表。',
+      icon: iconBell,
+      title: '更新提示挪到看得见的地方',
+      body: '以前提示只在「关于」页里，而主窗口默认停在「直播间连接」—— 挂着推流的人根本不会点进去。现在侧边栏「关于软件」有新版本时亮一个小红点，一打开就看见；检查频率也从「只在启动时查一次」改成「启动查一次 + 之后每 6 小时一次」，连续开播几天不重启也不会漏。',
     },
   ],
   also: [
     {
-      title: '朗读里也说得清是谁对谁',
-      body: '被 @ 的弹幕念成「发送者对被提及者说 正文」，不看「念用户名」开关也知道是谁跟谁说话；只 @ 人不说话的那种（正文为空）整条跳过，不念。',
+      title: '发现新版本就在后台静默下好安装包',
+      body: '点更新时只剩「安装 → 重启」，几秒完成，不用盯着进度条。',
     },
     {
-      title: '这次没动别的',
-      body: '连接、弹幕窗、朗读、筛选都没改，从 v1.5.0 升上来就是上面这两处新增。',
+      title: '更严格的更新校验',
+      body: '下载的安装包除了要验签名，现在还要求签名里绑定的版本与更新清单声明的版本一致。把「新版本号 + 旧安装包」拼在一起也装不上，不会被诱导退回旧版本。',
+    },
+    {
+      title: '从 v1.6.0 升上来要手动装这一次',
+      body: '自动更新要这一版装好之后才生效，下载本页安装包覆盖安装即可，以后的新版本就能一键更新了。',
     },
   ],
 }
@@ -158,7 +162,7 @@ export const features = {
     },
     { title: '数据不外流', desc: '配置存在本机，不收集任何信息、不上传日志。' },
   ],
-  todo: '还没做：滚动弹幕、顶弹、用户屏蔽、Windows 系统 TTS、开机自启、全局快捷键、自动更新。',
+  todo: '还没做：滚动弹幕、顶弹、用户屏蔽、Windows 系统 TTS、开机自启、全局快捷键。',
 }
 
 // 「和官方客户端比」区块：只列差异项，不贬低官方，末尾用脚注把话说圆
@@ -187,7 +191,7 @@ export const compare = {
     {
       title: '体积与占用',
       official: '整套客户端功能很全，安装包和运行时占用也相应更大。',
-      ours: '安装包 3.0 MB，装完占硬盘 12 MB，长时间挂着占用不越涨越多。',
+      ours: '安装包 3.2 MB，装完占硬盘 12 MB，长时间挂着占用不越涨越多。',
     },
   ],
   footnote: '这里只列差异项。官方客户端在礼物特效、粉丝互动这些场景上更完整，两者不冲突，可以同时用。',
@@ -216,7 +220,7 @@ export const download = {
   eyebrow: '下载',
   title: `下载 bili-danmu v${VERSION}`,
   platform: 'Windows 10 / 11（x64）',
-  size: '3.0 MB',
+  size: '3.2 MB',
   note: '双击安装，不需要额外运行环境',
   steps: [
     '下载安装包，双击装好',

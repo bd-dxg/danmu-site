@@ -7,14 +7,14 @@ markdownStyles: false
 hero:
   name: bili-danmu
   text: 不跟游戏抢资源的弹幕助手
-  tagline: 3.0 MB 装完就能用。透明悬浮窗叠在游戏画面上，鼠标穿透不拦点击，弹幕还能念出来。
+  tagline: 3.2 MB 装完就能用。透明悬浮窗叠在游戏画面上，鼠标穿透不拦点击，弹幕还能念出来。
   image:
     src: /imgs/bili-danmu/app-icon.webp
     alt: bili-danmu 图标
   actions:
     - theme: brand
       text: 下载安装包
-      link: https://v4.gh-proxy.org/https://github.com/bd-dxg/bili-danmu/releases/download/v1.6.0/bili-danmu_1.6.0_x64-setup.exe
+      link: https://v4.gh-proxy.org/https://github.com/bd-dxg/bili-danmu/releases/download/v1.7.1/bili-danmu_1.7.1_x64-setup.exe
     - theme: alt
       text: 蓝奏下载密码:6u67
       link: https://wwbor.lanzouu.com/b03fmf2u0j

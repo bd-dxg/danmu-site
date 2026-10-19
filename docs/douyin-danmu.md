@@ -7,14 +7,14 @@ markdownStyles: false
 hero:
   name: douyin-danmu
   text: 抖音主播——<br>桌面弹幕助手
-  tagline: 3.3 MB 装完就能用。透明悬浮窗挂在桌面上看弹幕，鼠标穿透直接点到游戏上，弹幕还能用 Edge TTS 念出来。
+  tagline: 3.5 MB 装完就能用。透明悬浮窗挂在桌面上看弹幕，鼠标穿透直接点到游戏上，弹幕还能用 Edge TTS 念出来。
   image:
     src: /imgs/douyin-danmu/app-icon.png
     alt: douyin-danmu 图标
   actions:
     - theme: brand
       text: 下载安装包
-      link: https://v4.gh-proxy.org/https://github.com/bd-dxg/douyin-danmu/releases/download/v0.2.1/douyin-danmu_0.2.1_x64-setup.exe
+      link: https://v4.gh-proxy.org/https://github.com/bd-dxg/douyin-danmu/releases/download/v0.3.0/douyin-danmu_0.3.0_x64-setup.exe
     - theme: alt
       text: 蓝奏下载密码:6u67
       link: https://wwbor.lanzouu.com/b03fmf2u0j
