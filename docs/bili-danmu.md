@@ -16,8 +16,8 @@ hero:
       text: 下载安装包
       link: https://v4.gh-proxy.org/https://github.com/bd-dxg/bili-danmu/releases/download/v1.7.1/bili-danmu_1.7.1_x64-setup.exe
     - theme: alt
-      text: 蓝奏下载密码:6u67
-      link: https://wwbor.lanzouu.com/b03fmf2u0j
+      text: GitHub 仓库
+      link: https://github.com/bd-dxg/bili-danmu
 ---
 
 <script setup lang="ts">

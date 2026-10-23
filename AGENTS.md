@@ -44,8 +44,7 @@ curl.exe -sIL -o NUL -w "%{http_code}`n" "<直链>"
 
 ### 其他多处同步的值
 
-- **仓库地址**：`data/*.ts` 的 `REPO_URL`、`LandingProducts.vue`、`docs/*.md` 的 action 链接
-- **蓝奏网盘链接**（`https://wwbor.lanzouu.com/b03fmf2u0j`，密码 `6u67`）：两个产品的 `docs/*.md` hero action 里各有一份
+- **仓库地址**：`data/*.ts` 的 `REPO_URL`、`LandingProducts.vue`、`docs/*.md` 的 action 链接（hero 第二个 action 指向各自 GitHub 仓库）
 - **官网域名**：`config.ts` 的 `SITE_URL`（不要写结尾斜杠）、`.github/workflows/deploy.yml` 的 `TARGET`
 
 ## 约定

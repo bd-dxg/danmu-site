@@ -16,8 +16,8 @@ hero:
       text: 下载安装包
       link: https://v4.gh-proxy.org/https://github.com/bd-dxg/douyin-danmu/releases/download/v0.3.0/douyin-danmu_0.3.0_x64-setup.exe
     - theme: alt
-      text: 蓝奏下载密码:6u67
-      link: https://wwbor.lanzouu.com/b03fmf2u0j
+      text: GitHub 仓库
+      link: https://github.com/bd-dxg/douyin-danmu
 ---
 
 <script setup lang="ts">
